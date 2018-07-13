@@ -6,4 +6,8 @@
     <dimen name="nav_header_height">176dp</dimen>
     <!--// FAB 제거-->
     <!--<dimen name="fab_margin">16dp</dimen>-->
+
+    <dimen name="spacing_xlarge2">36dp</dimen>
+
+    <dimen name="text_size_medium2">19sp</dimen>
 </resources>
