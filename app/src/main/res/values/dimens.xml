@@ -9,5 +9,6 @@
 
     <dimen name="spacing_xlarge2">36dp</dimen>
 
+    <dimen name="text_size_medium">16sp</dimen>
     <dimen name="text_size_medium2">19sp</dimen>
 </resources>

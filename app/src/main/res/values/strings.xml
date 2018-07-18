@@ -15,6 +15,9 @@
 
     <!-- 시작 화면 -->
     <string name="index_message">최고의 음식점\n모두 모아\n베스트푸드</string>
+    <string name="delicious">Delicious</string>
+    <string name="submit">확인</string>
+    <string name="network_not_working">네크워크에 연결되어 있지 않습니다.\n확인후 다시 실행해주세요.</string>
 
     <!-- 공통 -->
     <string name="cancel">취소</string>
