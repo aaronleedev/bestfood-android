@@ -74,6 +74,7 @@ public class IndexActivity extends AppCompatActivity {
      */
     private void showNoService() {
         TextView messageText = (TextView) findViewById(R.id.message);
+        messageText.setText(R.string.network_not_working);
         messageText.setVisibility(View.VISIBLE);
 
         Button closeButton = (Button) findViewById(R.id.close);
@@ -83,6 +84,7 @@ public class IndexActivity extends AppCompatActivity {
                 finish();
             }
         });
+        closeButton.setText(R.string.submit);
         closeButton.setVisibility(View.VISIBLE);
     }
 
@@ -124,8 +126,30 @@ public class IndexActivity extends AppCompatActivity {
             public void onFailure(Call<MemberInfoItem> call, Throwable t) {
                 MyLog.d(TAG, "no internet connectivity");
                 MyLog.d(TAG, t.toString());
+                showFailSelectMemberInfo();
             }
         });
+    }
+
+    /**
+     * 현재 서버와의 접속이 실패했다는 메시지와 다시연결 버튼을 보여준다.
+     */
+    private void showFailSelectMemberInfo() {
+        final TextView messageText = (TextView) findViewById(R.id.message);
+        messageText.setText(R.string.server_connect_fail);
+        messageText.setVisibility(View.VISIBLE);
+
+        final Button closeButton = (Button) findViewById(R.id.close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                messageText.setVisibility(View.GONE);
+                closeButton.setVisibility(View.GONE);
+                startTask();
+            }
+        });
+        closeButton.setText(R.string.server_connect_restart);
+        closeButton.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -162,8 +186,8 @@ public class IndexActivity extends AppCompatActivity {
         Intent intent = new Intent(IndexActivity.this, MainActivity.class);
         startActivity(intent);
 
-        Intent intent2 = new Intent(this, ProfileActivity.class);
-        startActivity(intent2);
+//        Intent intent2 = new Intent(this, ProfileActivity.class);
+//        startActivity(intent2);
 
         finish();
     }
@@ -185,13 +209,57 @@ public class IndexActivity extends AppCompatActivity {
                     int statusCode = response.code();
                     ResponseBody errorBody = response.errorBody();
                     MyLog.d(TAG, "fail " + statusCode + errorBody.toString());
+                    showFailMemberInsert();
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 MyLog.d(TAG, "no internet connectivity");
+                showFailureInsertMemberPhone();
             }
         });
+    }
+
+    /**
+     * 현재 서버에서 새로운 사용자 등록이 실패했다는 메시지와 다시시도 버튼을 보여준다.
+     */
+    private void showFailMemberInsert() {
+        final TextView messageText = (TextView) findViewById(R.id.message);
+        messageText.setText(R.string.member_insert_fail);
+        messageText.setVisibility(View.VISIBLE);
+
+        final Button closeButton = (Button) findViewById(R.id.close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                messageText.setVisibility(View.GONE);
+                closeButton.setVisibility(View.GONE);
+                insertMemberPhone();
+            }
+        });
+        closeButton.setText(R.string.member_insert_restart);
+        closeButton.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * 현재 서버와의 접속이 실패했다는 메시지와 다시연결 버튼을 보여준다.
+     */
+    private void showFailureInsertMemberPhone() {
+        final TextView messageText = (TextView) findViewById(R.id.message);
+        messageText.setText(R.string.server_connect_fail);
+        messageText.setVisibility(View.VISIBLE);
+
+        final Button closeButton = (Button) findViewById(R.id.close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                messageText.setVisibility(View.GONE);
+                closeButton.setVisibility(View.GONE);
+                insertMemberPhone();
+            }
+        });
+        closeButton.setText(R.string.server_connect_restart);
+        closeButton.setVisibility(View.VISIBLE);
     }
 }

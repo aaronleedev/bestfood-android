@@ -18,6 +18,10 @@
     <string name="delicious">Delicious</string>
     <string name="submit">확인</string>
     <string name="network_not_working">네크워크에 연결되어 있지 않습니다.\n확인후 다시 실행해주세요.</string>
+    <string name="server_connect_restart">다시연결</string>
+    <string name="server_connect_fail">서버와의 연결이 실패하였습니다.\n잠시후 다시 연결해주세요.</string>
+    <string name="member_insert_restart">다시시도</string>
+    <string name="member_insert_fail">새로운 사용자 등록에 실패하였습니다.\n잠시후 다시 시도해주세요.</string>
 
     <!-- 공통 -->
     <string name="cancel">취소</string>
