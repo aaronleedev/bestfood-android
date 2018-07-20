@@ -186,8 +186,8 @@ public class IndexActivity extends AppCompatActivity {
         Intent intent = new Intent(IndexActivity.this, MainActivity.class);
         startActivity(intent);
 
-//        Intent intent2 = new Intent(this, ProfileActivity.class);
-//        startActivity(intent2);
+        Intent intent2 = new Intent(this, ProfileActivity.class);
+        startActivity(intent2);
 
         finish();
     }
