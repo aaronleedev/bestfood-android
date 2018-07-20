@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 앱을 실행할 때 필요한 권한을 처리하기 위한 액티비티
+ * 앱을 실행할 때 필요한 권한을 처리하기 위한 Activity
  */
 public class PermissionActivity extends AppCompatActivity {
     private static final int PERMISSION_MULTI_CODE = 100;
