@@ -168,6 +168,9 @@ public class IndexActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * 전화번호를 서버에 저장한다.
+     */
     private void insertMemberPhone() {
         String phone = EtcLib.getInstance().getPhoneNumber(context);
         RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);

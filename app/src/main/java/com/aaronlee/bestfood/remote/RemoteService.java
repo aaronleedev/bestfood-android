@@ -17,7 +17,7 @@ public interface RemoteService {
     String MEMBER_ICON_URL = BASE_URL + "/member/";
     String IMAGE_URL = BASE_URL + "/img/";
 
-    // 사용자 정보 조회
+    // 전화번호로 사용자 정보 조회
     @GET("/member/{phone}")
     Call<MemberInfoItem> selectMemberInfo(@Path("phone") String phone);
 
