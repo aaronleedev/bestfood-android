@@ -3,6 +3,7 @@ package com.aaronlee.bestfood.remote;
 import com.aaronlee.bestfood.item.MemberInfoItem;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -25,4 +26,8 @@ public interface RemoteService {
     @FormUrlEncoded
     @POST("/member/phone")
     Call<String> insertMemberPhone(@Field("phone") String phone);
+
+    // 사용자 정보 등록 및 변경
+    @POST("/member/info")
+    Call<String> insertMemberInfo(@Body MemberInfoItem memberInfoItem);
 }
